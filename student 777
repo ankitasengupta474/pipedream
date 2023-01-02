@@ -1,0 +1,35 @@
+import os
+import csv
+import subprocess
+import time
+import sys
+try:
+    import matplotlib.pyplot as plt
+except:
+    subprocess.run(['pip', 'install', 'matplotlib'])
+    import matplotlib.pyplot as plt
+
+path='C:/python project'
+print('-'*50)
+
+
+#All the Functions used Throughout the code
+def loading_screen():
+    for i in range(10):
+        sys.stdout.write("\rLoading" + "." * i)
+        sys.stdout.flush()
+        time.sleep(0.5)
+    sys.stdout.write("\rLoading complete!")
+    
+def createfile(name,lst):
+    with open(f'{path}/{name}','a',newline='')as f:
+        script= csv.writer(f)
+        script.writerow(lst)
+        print(f"{name} file has been UPDATED")
+
+def percent(num):
+    if stream.lower()=='cse' or stream.lower()=='cseai' or stream.lower()=='cseaiml' or stream.lower()=='cseiotcsbs':
+        num=(num*100)//600
+    elif stream.lower()=='it' or stream.lower()=='ece' or stream.lower()=='me':
+        num=(num*100)//500
+    return num
